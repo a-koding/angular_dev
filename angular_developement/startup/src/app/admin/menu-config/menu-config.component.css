@@ -1,0 +1,8 @@
+table.dataTable tbody tr.even {
+  background-color: #323232 ;
+}
+
+h4.align_single{
+  width: 90%;
+  float: left;
+}

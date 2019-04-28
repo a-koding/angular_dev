@@ -1,0 +1,36 @@
+<div style="background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);">
+<div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left d-none d-md-flex">
+             <!-- Background image for card set in CSS! -->
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Register</h5>
+<form name="form" #f="ngForm" (ngSubmit)="onSubmit(f)" >
+  <div >
+    <label for="name">Name</label>
+    <input name="name" #name="ngModel" [(ngModel)]="users.selecteduser.name"  class="form-control" [ngModelOptions]="{standalone: false}" type="text"  aria-describedby="Your Name" placeholder="Enter Your Name">
+  </div>
+  <div >
+    <label for="password">Password</label>
+    <input name="password" #password="ngModel" [(ngModel)]="users.selecteduser.password" class="form-control" [ngModelOptions]="{standalone: false}" type="password" placeholder="Password">
+  </div>
+    <div >
+    <label for="cpassword">Confirm Password</label>
+    <input name="cpassword" class="form-control" #password="ngModel" [(ngModel)]="users.selecteduser.cpassword"   [ngModelOptions]="{standalone: false}" type="password" placeholder="Password">
+  </div>
+  <div >
+    <label for="exampleInputEmail1">Email address</label>
+    <input name="email" type="email"  #email="ngModel" class="form-control" [ngModelOptions]="{standalone: false}" [(ngModel)]="users.selecteduser.email"  aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

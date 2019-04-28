@@ -1,0 +1,68 @@
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<div class="row">
+  <div class="col-md-6">
+
+</div>
+ <div class="col-md-6 "  style="    display: flex;padding-left: 35%;padding-top:1%">
+   <div style="padding: 3%;">
+   <a [routerLink]="['../group_config']">
+ <div class="btn btn-outline-info"><i class="fa fa-arrow-left"></i></div>
+</a>
+</div>
+ <div style="padding: 3%;"><button type="submit" class="btn btn-outline-info" (click)="save_group()">Save</button></div>
+</div></div>
+<div style="padding:1%">
+
+ <form>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="first">Group Name</label>
+          <input type="text" class="form-control" (keyup)="get_groupname($event)" placeholder="Group Name">
+        </div>
+      </div>
+            <div class="col-md-6">
+        <div class="form-group">
+          <label for="first">Status</label>
+          <select class="form-control" (change)="change_status($event)">
+           <option>SELECT</option>
+          <option>Active</option>
+          <option>In Active</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+              <div class="col-md-12">
+        <div class="form-group">
+          <div class="table row header_style">
+              <th class="col-md-4" style="text-align:center">Name</th>
+              <th class="col-md-4" style="text-align:center">Email</th>
+              <th class="col-md-4" style="text-align:center">Delete</th>
+
+        </div>
+          <div class="col-md-12">
+              <div *ngFor="let new_row of add_new;let i = index" class="row" style="padding: 1%">
+              <div class="col-md-4">
+              <select class="form-control"  (change)="select_name($event,i)" >
+              <option>SELECT</option>
+              <option *ngFor="let element of userlist;let j = index" value="{{j}}"  [attr.data-email]="i"> {{element.name}}</option>
+              </select>
+              </div>
+              <div class="col-md-4">
+              <select  class="form-control" disabled>
+              <option>{{add_new[i].email}}</option>
+              </select >
+              </div>
+              <div class="col-md-4" style="text-align: center;"><div class="btn btn-outline-danger" (click)="remove_row(i)" style="border-radius: 30px;"><i class="fa fa-times" aria-hidden="true"></i></div></div></div>
+              <div style="text-align:center"><a><u style="cursor:pointer" (click)="new_row()">Add new</u></a></div>
+              </div>
+          </div>
+      </div>
+        </div>
+    </div>
+
+  </form>
+</div>
