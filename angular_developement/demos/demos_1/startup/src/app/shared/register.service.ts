@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RegisterUser } from './register.model';
+import { RegisterUser, Validate } from './register.model';
 import { UserAuthenticate } from './register.model';
-@Injectable()
+
+@Injectable(
+  {
+    providedIn: 'root',
+  }
+   
+)
 export class userRegistrationService {
   selecteduser : RegisterUser;
+  token : Validate;
   authenticate_data : UserAuthenticate;
   readonly  baseURL = "http://localhost:3000/";
 
@@ -20,5 +27,9 @@ export class userRegistrationService {
   Authenticate_user(login_data:UserAuthenticate)
   {
     return this.http.post(this.baseURL+"login_auth/",login_data);
+  }
+  Validate_test(token:Validate)
+  {
+    return this.http.post(this.baseURL+"middleware_check/",token);
   }
 }

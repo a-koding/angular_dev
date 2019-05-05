@@ -18,7 +18,7 @@ export class GroupFormComponent implements OnInit {
   ngOnInit() {
 
   this.user.getuserList().subscribe((res) => {
-   for(let i=0;i<res.length;i++)
+   for(let i=0;i<res[0].length;i++)
    {
     this.userlist[i]={'name':res[i].name,'email':res[i].email};
    }

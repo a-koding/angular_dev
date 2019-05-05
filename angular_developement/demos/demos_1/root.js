@@ -7,6 +7,7 @@ var createusersController = require('./controller/createusers');
 var employeeController = require('./controller/employeeController');
 var usersController = require('./controller/usersController');
 var login_authController = require('./controller/login_auth');
+var middleware_Controller=require('./controller/middleware_auth')
 var app = express();
 app.use(bodyParser.json());
 app.use(cors({origin:'http://localhost:4200'}));
@@ -15,6 +16,7 @@ app.use('/employees',employeeController);
 app.use('/users',usersController);
 app.use('/createusers',createusersController);
 app.use('/login_auth',login_authController);
+app.use('/middleware_check',middleware_Controller);
 
 
 

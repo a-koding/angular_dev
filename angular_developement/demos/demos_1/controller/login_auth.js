@@ -3,8 +3,10 @@ var router = express.Router();
 var {res_users} = require('../models/res_users');
 var CryptoJS = require("crypto-js");
 const UIDGenerator = require('uid-generator');
+const jwt=require('jsonwebtoken');
 router.post('/',(req,res)=>{
 var query={'email':req.body.email};
+console.log(req.body.email,req.body.password);
 res_users.findOne(query,['_id','password'],(err,docs)=>
 {
 if(!err)
@@ -13,14 +15,17 @@ if(!err)
         {
             
             const uidgen = new UIDGenerator(UIDGenerator.BASE16);
-            const uid = uidgen.generateSync();
-            console.log(uid);
+            uid="asdasd";
             res_users.findOneAndUpdate({ _id: docs._id },{temp_token:uid},err,doc=>{
                 if(!err)
                 {
-                let myobj={"valid_user":true,"token":uid};
+                    var tokens=jwt.sign({
+                        myval:"secret",
+                    },'748c0c2b79830aa46c2758af704c8ae5a4868bc2',{expiresIn:'1h'});
+                let myobj={"valid_user":true,"token":tokens};
                 res.status(200).send(myobj);
 
+                console.log("jwt token",tokens)
                 }
                 else{
 
@@ -42,23 +47,18 @@ else    {
 });
 
 
-router.get('/get_users',(req,res)=>{
-    res_users.find({'name':{$regex: '.*.*'}},'name email',(err,docs)=>
-    {
-    if(!err)
-    {
-        res.send(docs);
-    }
-    else{
-    
-        console.log("Error in reteriving users");
-    }
-    });
-    
-    
-    
-    });
+    router.post('/validate_me',(req,res)=>{
+        console.log("post",req.body.token);
+        try{
+        const decode=jwt.verify(req.body.token,"748c0c2b79830aa46c2758af704c8ae5a4868bc2");
+        res.status(200).json({"value":"posted"});
+        }
+        catch{
+            res.status(401).json({"status":"token expired"});
 
+        }
+        
+    });
 module.exports=router;
 
 

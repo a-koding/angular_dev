@@ -6,7 +6,9 @@ export class RegisterUser {
 
 
 }
-
+export class Validate {
+  token: string ;
+}
 export class UserAuthenticate {
   email: string ;
   password: string ;
