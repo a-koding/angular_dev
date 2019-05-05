@@ -22,24 +22,14 @@ export class HomeComponent implements OnInit {
   constructor(public users: userRegistrationService,) { }
 
   ngOnInit() {
-    this.users.token={
-    token:localStorage.getItem('token'),
-
-    };
+   
   }
   public send_token()
   {
-    console.log("send token");
-    let result=this.users.Validate_test(this.users.token).subscribe((res) => {
-      console.log(res)
-      if(res['status']==1)
-      {
-      return true;
-      }
-      else{
-        return false;
-      }
-    
-    });
+    this.users.token={
+      token:localStorage.getItem('token'),
+  
+      };
+    return this.users.Validate_test(this.users.token);
   }
 }

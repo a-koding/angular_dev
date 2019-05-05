@@ -7,6 +7,7 @@ const jwt=require('jsonwebtoken');
 router.post('/',(req,res)=>{
 var query={'email':req.body.email};
 console.log(req.body.email,req.body.password);
+
 res_users.findOne(query,['_id','password'],(err,docs)=>
 {
 if(!err)

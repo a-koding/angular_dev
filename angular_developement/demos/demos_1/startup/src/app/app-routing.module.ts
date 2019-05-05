@@ -26,6 +26,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuard],
     children: [
       {path: 'menu_config', component: MenuConfigComponent},
       {path: 'group_config', component: GroupConfigComponent},

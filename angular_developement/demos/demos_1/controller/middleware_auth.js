@@ -13,8 +13,7 @@ router.post('/',(req,res)=>{
     res.status(200).json({"status":1});
     }
     catch{
-        res.status(200).json({"status":0});
-
+    res.status(200).json({"status":0});
     }
     
 });

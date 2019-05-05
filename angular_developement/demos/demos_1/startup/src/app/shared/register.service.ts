@@ -30,6 +30,6 @@ export class userRegistrationService {
   }
   Validate_test(token:Validate)
   {
-    return this.http.post(this.baseURL+"middleware_check/",token);
+    return this.http.post(this.baseURL+"middleware_check/",token).toPromise();
   }
 }
