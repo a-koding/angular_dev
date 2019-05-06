@@ -26,6 +26,11 @@ export class RegisterComponent implements OnInit {
 
     }
   }
+
+  login_redirect()
+  {
+    this.router.navigateByUrl('/login');
+  }
  onSubmit(form : NgForm)
  {
 // tslint:disable-next-line: quotemark

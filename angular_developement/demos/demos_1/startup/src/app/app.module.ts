@@ -15,6 +15,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { GroupConfigComponent } from './admin/group-config/group-config.component';
 import { GroupFormComponent } from './admin/group-form/group-form.component';
 import { AuthGuard } from './shared/authentication_guard/auth.guard';
+import { NavbarComponent } from './navbar/navbar.component';
+import { menuservice } from './shared/menu.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { AuthGuard } from './shared/authentication_guard/auth.guard';
     AdminComponent,
     MenuConfigComponent,
     GroupConfigComponent,
-    GroupFormComponent
+    GroupFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { AuthGuard } from './shared/authentication_guard/auth.guard';
     AngularFontAwesomeModule,
     DataTablesModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,menuservice],
   bootstrap: [AppComponent]
 })
 export class AppModule {

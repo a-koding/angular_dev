@@ -1,8 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 import { userRegistrationService } from '../shared/register.service';
+import { menuservice} from '../shared/menu.service'
 
 @Injectable(
   {
@@ -12,17 +10,15 @@ import { userRegistrationService } from '../shared/register.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers:[userRegistrationService]
+  providers:[userRegistrationService,menuservice]
   
 })
-
-
 export class HomeComponent implements OnInit {
  
-  constructor(public users: userRegistrationService,) { }
+  constructor(public users: userRegistrationService,public navbar:menuservice) { }
 
   ngOnInit() {
-   
+   this.navbar.setMyGV(false,false);
   }
   public send_token()
   {

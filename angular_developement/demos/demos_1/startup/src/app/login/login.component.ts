@@ -3,6 +3,7 @@ import { userRegistrationService } from '../shared/register.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,6 +20,11 @@ export class LoginComponent implements OnInit {
       password:"",
 
     };
+  }
+  register_redirect()
+  {
+    this.router.navigateByUrl('/register');
+
   }
   onSubmit(form : NgForm)
   {

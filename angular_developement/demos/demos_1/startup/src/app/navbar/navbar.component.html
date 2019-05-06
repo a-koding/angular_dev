@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="    flex-direction: row-reverse;">
+      <form class="form-inline my-2 my-lg-0">
+  
+          <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item" *ngIf="login">
+                <a class="nav-link" [routerLink]="['./login']"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button></a>
+              </li>
+              <li class="nav-item" *ngIf="signup">
+                <a class="nav-link" [routerLink]="['./register']"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</button></a>
+              </li>
+            </ul>
+  
+      </form>
+    </div>
+  </nav>
+  
