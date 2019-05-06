@@ -14,11 +14,6 @@ export class menuservice {
    signup: boolean; 
 
   constructor(private http : HttpClient) { 
-    this.login=true;
-    this.signup=true;
   }
-  setMyGV(login: boolean,signup:boolean){
-    this.login = login;
-    this.signup = signup;
-  }
+ 
 }
