@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { userRegistrationService } from '../shared/register.service';
 import { menuservice} from '../shared/menu.service'
 import { Subject } from 'rxjs';
+import { Subscription } from 'rxjs';
 @Injectable(
   {
     providedIn: 'root',
@@ -14,15 +15,22 @@ import { Subject } from 'rxjs';
   
 })
 export class HomeComponent implements OnInit {
- 
-  constructor(public users: userRegistrationService,public navbar:menuservice) { }
-  login_emitter = new Subject<boolean>();
-  signup_emitter= new Subject<boolean>();
-  ngOnInit() {
-    this.login_emitter.next(false);
-    this.signup_emitter.next(false);
-    console.log(this.login_emitter,"event emitted");
+
+
+  constructor(public users: userRegistrationService ,public menuservice:menuservice) { 
+   
+    
   }
+  ngOnInit() {
+    
+    
+  
+  }
+  sendMessage(): void {
+    // send message to subscribers via observable subject
+    this.menuservice.sendMessage(false);
+    console.log(this.menuservice.getMessage);
+}
   public send_token()
   {
     this.users.token={

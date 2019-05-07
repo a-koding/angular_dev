@@ -1,33 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {menuservice} from '../shared/menu.service';
 import { HomeComponent } from '../home/home.component';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
-  login :boolean =true;
-  signup :boolean=true;
-  
-  constructor(public home :HomeComponent) { 
-
+export class NavbarComponent implements OnDestroy {
+  component_visiblility: boolean;
+  subscription: Subscription;
+  constructor(private menu:menuservice) { 
+    this.subscription = this.menu.getMessage().subscribe(component_visiblility => { this.component_visiblility = component_visiblility; });
   }
-  ngOnInit() {
-    this.home.login_emitter.subscribe((res) => {
-      console.log("emitted event",res);
-      this.login=res;
-    });
-    console.log("emitted");
-    this.home.signup_emitter.subscribe((data) => {
-      this.signup=data;
-      console.log("emitted event",data);
-  
-    });
-  
 
-  }
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+}
 
 }
