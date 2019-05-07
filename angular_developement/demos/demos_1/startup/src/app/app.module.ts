@@ -17,6 +17,7 @@ import { GroupFormComponent } from './admin/group-form/group-form.component';
 import { AuthGuard } from './shared/authentication_guard/auth.guard';
 import { NavbarComponent } from './navbar/navbar.component';
 import { menuservice } from './shared/menu.service';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { menuservice } from './shared/menu.service';
     MenuConfigComponent,
     GroupConfigComponent,
     GroupFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

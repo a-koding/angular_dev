@@ -8,11 +8,16 @@ import { MenuConfigComponent } from './admin/menu-config/menu-config.component';
 import { GroupConfigComponent } from './admin/group-config/group-config.component';
 import { GroupFormComponent } from './admin/group-form/group-form.component';
 import { AuthGuard } from './shared/authentication_guard/auth.guard';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: '',
+    component: LandingPageComponent
   },
   {
     path: 'login',

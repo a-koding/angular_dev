@@ -10,6 +10,8 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class NavbarComponent implements OnDestroy {
   component_visiblility: boolean;
+  login:boolean=true;
+  signup:boolean=true;
   subscription: Subscription;
   constructor(private menu:menuservice) { 
     this.subscription = this.menu.getMessage().subscribe(component_visiblility => { this.component_visiblility = component_visiblility; });

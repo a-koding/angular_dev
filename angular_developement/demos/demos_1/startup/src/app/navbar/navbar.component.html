@@ -1,4 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-header">
+        <a class="navbar-brand home_link hover-effect" [routerLink]="['./']"><button class="btn-1">Writerspot</button></a>
+      </div>
+      
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,7 +15,7 @@
   
           <ul class="navbar-nav mr-auto">
 
-              <li class="nav-item" *ngIf="component_visiblility">
+              <li class="nav-item" *ngIf="login">
                 <a class="nav-link" [routerLink]="['./login']"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button></a>
               </li>
               <li class="nav-item" *ngIf="signup">
@@ -19,4 +26,7 @@
       </form>
     </div>
   </nav>
-  
+
+
+  <!-- Main Content -->
+ 
