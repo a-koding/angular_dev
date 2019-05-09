@@ -21,7 +21,7 @@ export class BlogFormViewComponent implements OnInit {
 
   onSubmit(form : NgForm)
  {
-   if(this.post_content.blogmodel.blog_title!="" && this.post_content.blogmodel.blog_content!="")
+   if(this.post_content.blogmodel.blog_title!="")
    {
   const Toast = Swal.mixin({
     toast: true,
@@ -31,7 +31,7 @@ export class BlogFormViewComponent implements OnInit {
   });
   Toast.fire({
     type: 'success',
-    title: 'Sign-in successfully'
+    title: 'Posted Successfully'
   });
   this.post_content.postBlog(form.value).subscribe((res) => {
   this.router.navigateByUrl('/');
