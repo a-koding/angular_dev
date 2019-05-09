@@ -3,7 +3,7 @@ import { userRegistrationService } from '../shared/register.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
   providers:[userRegistrationService]
 })
 export class LoginComponent implements OnInit {
-
+public user_name="";
   constructor(public users: userRegistrationService, private router: Router) { }
 
   ngOnInit() {
@@ -47,6 +47,10 @@ export class LoginComponent implements OnInit {
           showConfirmButton: false,
           timer: 3000
         });
+        const helper = new JwtHelperService();
+        const decodedToken = helper.decodeToken(res['token']);
+        console.log("decodedToken",decodedToken.user_name);
+        this.user_name=decodedToken.user_name;
         window.localStorage.setItem("token", res['token']);
         this.router.navigate(['/home']);
         Toast.fire({

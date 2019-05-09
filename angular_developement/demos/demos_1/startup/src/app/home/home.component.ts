@@ -1,8 +1,10 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { userRegistrationService } from '../shared/register.service';
-import { menuservice} from '../shared/menu.service'
+import { menuservice} from '../shared/menu.service';
 import { Subject } from 'rxjs';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
 @Injectable(
   {
     providedIn: 'root',
@@ -17,19 +19,24 @@ import { Subscription } from 'rxjs';
 export class HomeComponent implements OnInit {
 
 
-  constructor(public users: userRegistrationService ,public menuservice:menuservice) { 
+  constructor(public users: userRegistrationService ,public menuservice:menuservice,public router:Router) { 
    
-    
+
   }
   ngOnInit() {
     
-    
+    this.router.navigateByUrl('/home/blog_tree');
   
   }
   sendMessage(): void {
     // send message to subscribers via observable subject
     this.menuservice.sendMessage(false);
     console.log(this.menuservice.getMessage);
+}
+goto_form()
+{
+
+  
 }
   public send_token()
   {

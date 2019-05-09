@@ -9,6 +9,10 @@ import { GroupConfigComponent } from './admin/group-config/group-config.componen
 import { GroupFormComponent } from './admin/group-form/group-form.component';
 import { AuthGuard } from './shared/authentication_guard/auth.guard';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BlogFormViewComponent } from './home/blog-form-view/blog-form-view.component';
+import { BlogTreeViewComponent } from './home/blog-tree-view/blog-tree-view.component';
+
+
 
 const routes: Routes = [
   {
@@ -27,6 +31,10 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard],
+    children: [
+      {path: 'blog_form', component: BlogFormViewComponent},
+      {path: 'blog_tree', component: BlogTreeViewComponent},
+    ]
   },
   {
     path: 'admin',

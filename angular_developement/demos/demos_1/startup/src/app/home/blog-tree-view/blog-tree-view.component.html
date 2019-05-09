@@ -1,0 +1,32 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a >Home</a></li>
+    </ol>
+  </nav>
+<div style="height:100%">
+    <div style="margin-left:2%;padding-top:2%"class="well">
+   <div style="    display: flex;flex-direction: row-reverse;">
+    <a style="margin-right:3%" >
+<button type="button"  class="btn btn-outline-secondary " (click)="goto_form()">New </button>
+</a></div> 
+    </div>
+    <div  style="padding:2%;" >
+    
+    <table datatable class="table table-striped ">
+      <thead>
+        <tr style="    background-color: #343a40;color:whitesmoke;">
+          <th scope="col">No</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of post_items;let i = index" style="cursor: pointer;">
+          <th scope="row">{{i+1}}</th>
+          <td>{{row.blog_title}}</td>
+          <td>Anonymous</td>
+        </tr>
+      </tbody>
+    </table>
+    </div></div>    
+ 

@@ -18,7 +18,11 @@ import { AuthGuard } from './shared/authentication_guard/auth.guard';
 import { NavbarComponent } from './navbar/navbar.component';
 import { menuservice } from './shared/menu.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-
+import { PostPreviewComponent } from './landing-page/post-preview/post-preview.component';
+import { NgxEditorModule } from 'ngx-editor';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BlogFormViewComponent } from './home/blog-form-view/blog-form-view.component';
+import { BlogTreeViewComponent } from './home/blog-tree-view/blog-tree-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +34,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     GroupConfigComponent,
     GroupFormComponent,
     NavbarComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    PostPreviewComponent,
+    BlogFormViewComponent,
+    BlogTreeViewComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     HttpClientModule,
     AngularWebStorageModule,
     AngularFontAwesomeModule,
-    DataTablesModule
+    DataTablesModule,
+    NgxEditorModule,
+    ButtonsModule.forRoot(),
   ],
   providers: [AuthGuard,menuservice],
   bootstrap: [AppComponent]

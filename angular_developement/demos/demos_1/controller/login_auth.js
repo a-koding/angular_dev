@@ -6,22 +6,22 @@ const UIDGenerator = require('uid-generator');
 const jwt=require('jsonwebtoken');
 router.post('/',(req,res)=>{
 var query={'email':req.body.email};
-res_users.findOne(query,['_id','password'],(err,docs)=>
+const Crypt_token="748c0c2b79830aa46c2758af704c8ae5a4868bc2";
+res_users.findOne(query,['_id','password','name'],(err,docs)=>
 {
 if(!err)
 {
-    if(CryptoJS.AES.decrypt((docs.password).toString(), '748c0c2b79830aa46c2758af704c8ae5a4868bc2').toString(CryptoJS.enc.Utf8) == req.body.password)    
+    if(CryptoJS.AES.decrypt((docs.password).toString(), Crypt_token).toString(CryptoJS.enc.Utf8) == req.body.password)    
         {
-            uid="asdasd";
+            uid="tempkey";
             res_users.findOneAndUpdate({ _id: docs._id },{temp_token:uid},(err,doc)=>{
                 if(!err)
                 {
                     var tokens=jwt.sign({
-                        myval:"secret",
-                    },'748c0c2b79830aa46c2758af704c8ae5a4868bc2',{expiresIn:'1h'});
+                        "user_name":docs.name,
+                    },Crypt_token,{expiresIn:'1h'});
                 let myobj={"valid_user":true,"token":tokens};
                 res.status(200).send(myobj);
-                console.log("jwt token",tokens)
                 }
                 else{
 
@@ -46,7 +46,7 @@ else    {
     router.post('/validate_me',(req,res)=>{
         console.log("post",req.body.token);
         try{
-        const decode=jwt.verify(req.body.token,"748c0c2b79830aa46c2758af704c8ae5a4868bc2");
+        const decode=jwt.verify(req.body.token,Crypt_token);
         res.status(200).json({"value":"posted"});
         }
         catch{

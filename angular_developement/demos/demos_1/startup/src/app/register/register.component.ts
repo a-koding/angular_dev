@@ -33,7 +33,6 @@ export class RegisterComponent implements OnInit {
   }
  onSubmit(form : NgForm)
  {
-// tslint:disable-next-line: quotemark
 if(this.users.selecteduser.password == this.users.selecteduser.cpassword || (this.users.selecteduser.password).trim()=="" ||(this.users.selecteduser.cpassword).trim()=="")
 {
   if(this.users.selecteduser.name != "" && this.users.selecteduser.email != "" && this.users.selecteduser.password!="")

@@ -1,0 +1,27 @@
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a >Home</a></li>
+                  <li class="breadcrumb-item"><a >Create New Post</a></li>
+                </ol>
+              </nav>
+<div style="margin:5%">
+                <form name="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="row">
+                <div class="col-md-8">
+    <div class="form-group">
+              
+        <label for="first">Title</label>
+        <input type="text" class="form-control" placeholder="Post Title"  name="title" #title="ngModel" [(ngModel)]="post_content.blogmodel.blog_title">
+      </div>
+    </div>
+    <div class="col-md-4">
+                <a [routerLink]="['../blog_tree']">
+                        <button  type="button" class="btn btn-outline-secondary pull-right" style="margin-top:8%">Go Back</button> 
+                </a>
+            <input type="submit" class="btn btn-outline-secondary pull-right" style="margin-top:8%;margin-right:2%" value="Save"/>
+    </div>
+</div>
+<app-ngx-editor height="150px" minHeight="50px" name="content" #content="ngModel" [(ngModel)]="post_content.blogmodel.get_blog_content" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
+</form>
+</div>
