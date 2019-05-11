@@ -14,9 +14,9 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   component_visiblility: boolean;
-  login:boolean=true;
-  signup:boolean=true;
-  logout:boolean=false;
+  login:boolean=false;
+  signup:boolean=false;
+  logout:boolean=true;
   subscription: Subscription;
   public token;
   constructor(private router: Router,public home:HomeComponent,private menu:menuservice,public blogservice:blogService,public users:userRegistrationService) { 
@@ -27,12 +27,19 @@ export class NavbarComponent implements OnInit {
  this.token=localStorage.getItem("token");
     if(this.token!="")
     {
-      return new Promise((resolve) => {
+      let get_auth= new Promise((resolve) => {
         this.home.send_token().then((res) => {
             if(res['status']== 0)
             {
               resolve(false);
+              this.login = true;
+              this.signup = true;
+              this.logout = false;
               this.router.navigateByUrl('/login');
+              
+            }
+            else if(res['status']== 1){
+              resolve(true);
               this.subscription = this.blogservice.login.subscribe(
                 (login) => {
                   this.login = login;
@@ -47,26 +54,34 @@ export class NavbarComponent implements OnInit {
                 }
               );
             }
-            else if(res['status']== 1){
-              resolve(true);
-              this.login = false;
-              this.signup = false;
-              this.logout = true;
-            }
           })
           .catch(err => {
             console.log("error");
             resolve(false);
-            
           });
-        })
-  
+        });
+        get_auth.then(function(data)
+        {
+        });
 
 
+    }
+    else{
+      this.login = true;
+      this.signup = true;
+      this.logout = false;
     }
 
 
 
 }
-
+logout_page()
+  {
+    console.log("logout");
+    localStorage.setItem("token","");
+    this.login = true;
+    this.signup = true;
+    this.logout = false;
+    this.router.navigateByUrl('/');
+  }
 }

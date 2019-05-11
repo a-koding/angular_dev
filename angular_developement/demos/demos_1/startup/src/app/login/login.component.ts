@@ -58,12 +58,8 @@ public logout_component:boolean=true;
         console.log("decodedToken",decodedToken.user_name);
         this.user_name=decodedToken.user_name;
         window.localStorage.setItem("token", res['token']);
-        this.router.navigate(['/home']);
-        Toast.fire({
-          type: 'success',
-          title: 'Sign-in successfully'
-        });
         this.blog_service.navbar_login_cmpt(this.login_component,this.logout_component);
+        this.router.navigate(['/home']);
 
       }
     });
