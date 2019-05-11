@@ -3,7 +3,10 @@ import {menuservice} from '../shared/menu.service';
 
 import { HomeComponent } from '../home/home.component';
 import { Observable, Subscription } from 'rxjs';
+import { RegisterComponent } from '../register/register.component';
 import { blogService } from '../shared/blog.service';
+import { userRegistrationService } from '../shared/register.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -21,16 +24,16 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.subscription = this.blogservice.message.subscribe(
-      (message) => {
-        this.login = message;
-        this.signup = message;
+    this.subscription = this.blogservice.login.subscribe(
+      (login) => {
+        this.login = login;
+        this.signup = login;
         
       }
     );
     this.subscription = this.blogservice.logout.subscribe(
-      (message) => {
-        this.logout = message;
+      (logout) => {
+        this.logout = logout;
         
       }
     );

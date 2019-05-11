@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RegisterUser, Validate } from './register.model';
 import { UserAuthenticate } from './register.model';
+import { Subject } from 'rxjs';
 
 @Injectable(
   {
@@ -14,7 +15,6 @@ export class userRegistrationService {
   token : Validate;
   authenticate_data : UserAuthenticate;
   readonly  baseURL = "http://localhost:3000/";
-
   constructor(private http : HttpClient) { }
   getuserList()
   {
@@ -32,4 +32,5 @@ export class userRegistrationService {
   {
     return this.http.post(this.baseURL+"middleware_check/",token).toPromise();
   }
+
 }

@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
   )
   export class blogService {
     blogmodel : Blogmodel;
-    public message = new Subject<boolean>();
+    public login = new Subject<boolean>();
     public logout = new Subject<boolean>();
     readonly  baseURL = "http://localhost:3000/";
     constructor(private http : HttpClient) { }
@@ -24,10 +24,11 @@ import { Subject } from 'rxjs';
     {
       return this.http.get(this.baseURL+"get_all_posts/");
     }
-   
-    setMessage(value: boolean) {
-      this.message.next(false);
-      this.logout.next(true);
-    }
+  navbar_login_cmpt(login_register: boolean,logout:boolean) {
+    console.log(login_register,"value");
+    this.login.next(login_register);
+    this.logout.next(logout);
+  }
+
   }
   

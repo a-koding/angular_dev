@@ -14,6 +14,8 @@ import { blogService } from '../shared/blog.service';
 })
 export class LoginComponent implements OnInit {
 public user_name="";
+public login_component:boolean=false;
+public logout_component:boolean=true;
   constructor(public users: userRegistrationService, private router: Router,public blog_service:blogService) { }
 
    
@@ -61,7 +63,7 @@ public user_name="";
           type: 'success',
           title: 'Sign-in successfully'
         });
-        this.blog_service.setMessage(true);
+        this.blog_service.navbar_login_cmpt(this.login_component,this.logout_component);
 
       }
     });
