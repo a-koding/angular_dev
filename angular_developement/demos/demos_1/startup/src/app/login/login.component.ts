@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { blogService } from '../shared/blog.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +14,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class LoginComponent implements OnInit {
 public user_name="";
-  constructor(public users: userRegistrationService, private router: Router) { }
+  constructor(public users: userRegistrationService, private router: Router,public blog_service:blogService) { }
+
+   
 
   ngOnInit() {
     this.users.authenticate_data={
@@ -57,7 +61,7 @@ public user_name="";
           type: 'success',
           title: 'Sign-in successfully'
         });
-
+        this.blog_service.setMessage(true);
 
       }
     });
