@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { blogService } from '../shared/blog.service';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 public user_name="";
 public login_component:boolean=false;
 public logout_component:boolean=true;
-  constructor(public users: userRegistrationService, private router: Router,public blog_service:blogService) { }
+public token;
+  constructor(public users: userRegistrationService, public home:HomeComponent,private router: Router,public blog_service:blogService) { }
 
    
 
@@ -26,6 +28,39 @@ public logout_component:boolean=true;
       password:"",
 
     };
+    this.token=localStorage.getItem("token");
+    if(this.token!="")
+    {
+      let get_auth= new Promise((resolve) => {
+        this.home.send_token().then((res) => {
+            if(res['status']== 0)
+            {
+              resolve(false);
+              this.router.navigateByUrl('/login');
+              
+            }
+            else if(res['status']== 1){
+              resolve(true);
+            }
+          })
+          .catch(err => {
+            console.log("error");
+            resolve(false);
+          });
+        });
+        get_auth.then(function(data)
+        {
+    if(data)
+    {
+      this.router.navigateByUrl('/home');
+    }
+        });
+
+
+    }
+    else{
+      this.router.navigateByUrl('/login');
+    }
   }
   register_redirect()
   {
@@ -58,6 +93,7 @@ public logout_component:boolean=true;
         console.log("decodedToken",decodedToken.user_name);
         this.user_name=decodedToken.user_name;
         window.localStorage.setItem("token", res['token']);
+        console.log(this.login_component,this.logout_component);
         this.blog_service.navbar_login_cmpt(this.login_component,this.logout_component);
         this.router.navigate(['/home']);
 

@@ -25,6 +25,20 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
  this.token=localStorage.getItem("token");
+  this.subscription = this.blogservice.login.subscribe(
+    (login) => {
+      this.login = login;
+      this.signup = login;
+      
+    }
+  );
+  this.subscription = this.blogservice.logout.subscribe(
+    (logout) => {
+      this.logout = logout;
+      
+    }
+  );
+
     if(this.token!="")
     {
       let get_auth= new Promise((resolve) => {
@@ -62,6 +76,7 @@ export class NavbarComponent implements OnInit {
         });
         get_auth.then(function(data)
         {
+    
         });
 
 
