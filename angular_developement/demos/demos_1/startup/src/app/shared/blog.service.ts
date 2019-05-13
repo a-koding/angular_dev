@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
     blogmodel : Blogmodel;
     public login = new Subject<boolean>();
     public logout = new Subject<boolean>();
+    public username = new Subject<string>();
     readonly  baseURL = "http://localhost:3000/";
     constructor(private http : HttpClient) { }
     postBlog(blog:Blogmodel)
@@ -24,10 +25,13 @@ import { Subject } from 'rxjs';
       return this.http.get(this.baseURL+"get_all_posts/");
     }
   navbar_login_cmpt(login_register: boolean,logout:boolean) {
-    console.log("blog service",logout);
-    console.log(login_register,"value");
     this.login.next(login_register);
     this.logout.next(logout);
+    
+  }
+  set_username(username:string)
+  {
+    this.username.next(username);
   }
 
   }

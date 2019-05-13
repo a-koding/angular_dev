@@ -95,6 +95,7 @@ public token;
         window.localStorage.setItem("token", res['token']);
         console.log(this.login_component,this.logout_component);
         this.blog_service.navbar_login_cmpt(this.login_component,this.logout_component);
+        this.blog_service.set_username(this.user_name);
         this.router.navigate(['/home']);
 
       }

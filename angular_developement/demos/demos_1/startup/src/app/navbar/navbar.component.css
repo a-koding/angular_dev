@@ -3,7 +3,13 @@ body {
     background: #2ecc71;
     font-size: 62.5%;
   }
-  
+  a.dropdown-item.logout:hover {
+    border: 1px solid #ffffff;
+    background-color: #302d2d;
+    color: #ffffff;
+    border-radius: 5px;
+    margin: 1%;
+}
   
   /* GENERAL BUTTON STYLING */
   .btn-1,

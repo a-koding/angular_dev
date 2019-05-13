@@ -1,6 +1,4 @@
-
-
-  
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="navbar-header">
         <a class="navbar-brand home_link hover-effect" [routerLink]="['./']"><button class="btn-1">Writerspot</button></a>
@@ -12,16 +10,23 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="    flex-direction: row-reverse;">
       <form class="form-inline my-2 my-lg-0">
-  
+        
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item" *ngIf="logout">
-              <a class="nav-link" (click)="logout_page()"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button></a>
-            </li>
+              <li class="nav-item dropdown" style="margin-top: 2%;" *ngIf="logout">
+                  <a class="nav-link dropdown-toggle"  style="cursor:pointer" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   {{username}}
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" style="cursor:pointer" > <i class="fa fa-user-circle" aria-hidden="true"></i> Profile Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item logout" (click)="logout_page()" style="cursor:pointer" ><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                  </div>
+                </li>
               <li class="nav-item" *ngIf="login">
                 <a class="nav-link" [routerLink]="['./login']"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button></a>
               </li>
               <li class="nav-item" *ngIf="signup">
-                <a class="nav-link" [routerLink]="['./register']"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</button></a>
+                <a class="nav-link" [routerLink]="['./register']"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create an account</button></a>
               </li>
             </ul>
   

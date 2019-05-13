@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
   
   }
   sendMessage(): void {
-    // send message to subscribers via observable subject
     this.menuservice.sendMessage(false);
     console.log(this.menuservice.getMessage);
 }

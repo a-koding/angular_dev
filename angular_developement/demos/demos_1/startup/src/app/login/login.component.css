@@ -287,16 +287,6 @@ p.account a:hover,p.account1 a:hover {
     width: 65%;
     margin: 0 auto;
 }
-.input-group span.fa {
-   font-size: 16px;
-    vertical-align: middle;
-	box-sizing:border-box;
-	float:left;
-    text-align: center;
-	width:6%;
-    padding: 15px 0px;
-	color: #01cd74;
-}
 h5 {
     text-align: center;
     margin: 10px 0px;
@@ -383,10 +373,6 @@ h5 {
 	}
 	input[type="text"],input[type="email"],input[type="password"] {
 		font-size: 14px;
-	}
-	.input-group span.fa {
-		font-size: 16px;
-		padding: 13px 0px;
 	}
 	.login_info h2 {
 		font-size: 23px;

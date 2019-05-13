@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   login:boolean=false;
   signup:boolean=false;
   logout:boolean=true;
+  username:string="develpement";
   subscription: Subscription;
   public token;
   constructor(private router: Router,public home:HomeComponent,private menu:menuservice,public blogservice:blogService,public users:userRegistrationService) { 
@@ -38,7 +39,11 @@ export class NavbarComponent implements OnInit {
       
     }
   );
-
+  this.subscription = this.blogservice.username.subscribe(
+    (user_name) => {
+      this.username = user_name;
+      
+    });
     if(this.token!="")
     {
       let get_auth= new Promise((resolve) => {
@@ -67,6 +72,11 @@ export class NavbarComponent implements OnInit {
                   
                 }
               );
+              this.subscription = this.blogservice.username.subscribe(
+                (user_name) => {
+                  this.username = user_name;
+                  
+                });
             }
           })
           .catch(err => {
@@ -85,6 +95,7 @@ export class NavbarComponent implements OnInit {
       this.login = true;
       this.signup = true;
       this.logout = false;
+      this.username="";
     }
 
 
