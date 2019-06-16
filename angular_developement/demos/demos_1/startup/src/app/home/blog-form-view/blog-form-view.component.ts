@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { blogService } from 'src/app/shared/blog.service';
+import { blogService } from '../../shared/blog.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -9,7 +9,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./blog-form-view.component.css']
 })
 export class BlogFormViewComponent implements OnInit {
-
   constructor(public post_content:blogService,public router:Router) { }
 
   ngOnInit() {

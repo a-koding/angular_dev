@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { blogService } from 'src/app/shared/blog.service';
+import { blogService } from '../../shared/blog.service';
 
 @Component({
   selector: 'app-blog-tree-view',
@@ -13,15 +13,27 @@ public post_items=[];
 
   ngOnInit() {
     this.getpost.get_all_blogs().subscribe((res) => {
+      console.log(res,"Result");
       res['data'].forEach(post => {
         this.post_items.push(post);
       });
     });
     this.post_items.reverse();
+    
   }
   goto_form()
   {
 this.router.navigateByUrl('/home/blog_form');
 
   }
+  search(event)
+{
+  
+}
+
+select_tabset(event)
+{
+  var target = event.currentTarget;
+  console.log(target.attributes.id);
+}
 }

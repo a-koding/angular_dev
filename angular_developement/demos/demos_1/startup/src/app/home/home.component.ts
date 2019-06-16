@@ -1,8 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { userRegistrationService } from '../shared/register.service';
 import { menuservice} from '../shared/menu.service';
-import { Subject } from 'rxjs';
-import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable(

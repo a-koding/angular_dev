@@ -1,32 +1,40 @@
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a >Home</a></li>
+      <li class="breadcrumb-item"><a >My recent post's</a></li>
     </ol>
   </nav>
-<div style="height:100%">
-    <div style="margin-left:2%;padding-top:2%"class="well">
-   <div style="    display: flex;flex-direction: row-reverse;">
-    <a style="margin-right:3%" >
-<button type="button"  class="btn btn-outline-secondary " (click)="goto_form()">New </button>
-</a></div> 
+<div>
+
+    <div  class="container">
+      
+    <div class="row container_panel" style="margin-top: 4%;    border-top-left-radius: 200px;">
+        <div class="col-md-12" style="padding:2%; display: flex;justify-content: flex-end;"><div class="form-inline"><input class="form-control" placeholder="Search" type="search" (keyup)="search($event)"/> </div></div>
+        <div class="col-md-3 tabset btn" *ngFor="let row of post_items;let i = index" id="{{row._id}}" (click)="select_tabset($event)">
+            <div style="    border-bottom: 2px solid #9f9c9c;
+            padding-top: 4%;">
+
+          <small style="font-family: 'Quicksand', sans-serif;"><b>{{row.blog_title}}</b></small>
+          
+          <i class="fa fa-times pull-right delete_tabset"  aria-hidden="true" (click)="delete_tabset()"></i> 
+          <i class="fa fa-cogs pull-right delete_tabset" aria-hidden="true" (click)="settings_tabset()"></i>
+          </div>
+      
+
+            <div > <small  class="preview" style="font-family: 'Quicksand', sans-serif;">{{row.blog_content}} </small></div>
+         
+        </div>
+
+        <div class="col-md-3 tabset_newpost"  style="cursor:pointer;" (click)="goto_form()">
+          <div class="" style="display:flex;justify-content: center">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          </div>
+        </div>
+
+
     </div>
-    <div  style="padding:2%;" >
-    
-    <table datatable class="table table-striped ">
-      <thead>
-        <tr style="    background-color: #343a40;color:whitesmoke;">
-          <th scope="col">No</th>
-          <th scope="col">Title</th>
-          <th scope="col">Author</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let row of post_items;let i = index" style="cursor: pointer;">
-          <th scope="row">{{i+1}}</th>
-          <td>{{row.blog_title}}</td>
-          <td>Anonymous</td>
-        </tr>
-      </tbody>
-    </table>
+
     </div></div>    
  

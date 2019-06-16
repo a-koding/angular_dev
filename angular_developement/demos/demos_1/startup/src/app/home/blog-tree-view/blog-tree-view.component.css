@@ -1,0 +1,161 @@
+.tabset{
+    height: 150px;
+    width: 300px;
+    background-color: #ccc;
+    border-radius: 6px;
+    margin: 2%;
+    cursor:pointer;
+    z-index: 1;
+    border-bottom: 5px solid #68736d91;
+}
+.preview{
+    display: -webkit-box;
+    max-width: 235px;
+    height: 92px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tabset_newpost{
+    height: 150px;
+    width: 300px;
+    border-radius: 6px;
+    margin: 2%;
+    color: #000000b3;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 5%;
+    -webkit-box-shadow: 0px 4px 13px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 13px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 13px -7px rgba(0,0,0,0.75);
+}
+
+.tabset:hover {
+    background-color: #000000b3;
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+    font-weight: bold;
+    border-left: 5px solid #2ecc71;
+    -webkit-box-shadow: -22px 11px 28px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: -22px 11px 28px -7px rgba(0,0,0,0.75);
+    box-shadow: -22px 11px 28px -7px rgba(0,0,0,0.75);
+    animation: pop_tabset 0.1s 1 0s linear;
+    
+}
+.tabset i:hover {
+    color:white;
+    
+}
+
+
+.delete_tabset{
+    font-size: 22px;
+    cursor: pointer;
+
+}
+.container_panel{
+    border: 2px solid #fff;
+    -webkit-box-shadow: 11px 0px 19px -3px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 11px 0px 19px -3px rgba(0, 0, 0, 0.25);
+    box-shadow: 11px 0px 19px -3px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+.tabset_body_o
+{
+display: flex;
+height: 80%;
+justify-content: center;
+align-items: center;
+font-size: 0em;
+cursor: pointer;
+}
+.tabset_body_o:hover
+{
+font-size: 2em;
+}
+
+
+
+/* Curl effects – curls corners on hover */
+.paper-curl:before, .paper-curl:after,
+.paper-curl-right:before,
+.paper-curl-right:after {
+  bottom: 12px;
+  width: 50%;
+  height: 55%;
+  max-width: 200px;
+  max-height: 100px;
+  box-shadow: 1px 8px 12px rgba(31, 31, 31, 0.6);
+}
+.paper-curl:before,
+.paper-curl-right:before {
+  left: 10px;
+}
+.paper-curl:after,
+.paper-curl-right:after {
+  right: 10px;
+}
+.paper-curl:hover:before, .paper-curl:hover:after,
+.paper-curl-right:hover:before,
+.paper-curl-right:hover:after {
+  box-shadow: 1px 8px 12px rgba(31, 31, 31, 0.8);
+}
+.paper-curl:hover:before,
+.paper-curl-right:hover:before {
+  transform: skew(-8deg) rotate(-3deg);
+}
+.paper-curl:hover:after,
+.paper-curl-right:hover:after {
+  transform: skew(8deg) rotate(3deg);
+}
+
+.paper-curl:hover {
+  border-radius: 0 0 40% 40% / 0 0 30% 30%;
+}
+
+.paper-curl-right:before {
+  display: none;
+}
+.paper-curl-right:hover {
+  border-radius: 0 0 40% 0 / 0 0 30% 0;
+}
+.paper {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+    border-color: #dedede;
+  }
+  
+/* Curl effects – curls right hand side on hover */
+.paper-curl-right-side:before, .paper-curl-right-side:after {
+  right: 10px;
+  width: 50%;
+  height: 55%;
+  max-width: 200px;
+  max-height: 100px;
+}
+.paper-curl-right-side:before {
+  top: 12px;
+  box-shadow: 1px -4px 12px rgba(31, 31, 31, 0.6);
+}
+.paper-curl-right-side:after {
+  bottom: 12px;
+  box-shadow: 1px 4px 12px rgba(31, 31, 31, 0.6);
+}
+.paper-curl-right-side:hover {
+  right: 0;
+  border-radius: 0 3% 3% 0 / 0% 50% 50% 0;
+}
+.paper-curl-right-side:hover:before {
+  box-shadow: 10px -4px 12px rgba(31, 31, 31, 0.8);
+  transform: skew(-8deg) rotate(-3deg);
+}
+.paper-curl-right-side:hover:after {
+  box-shadow: 10px 4px 12px rgba(31, 31, 31, 0.8);
+  transform: skew(8deg) rotate(3deg);
+}
+

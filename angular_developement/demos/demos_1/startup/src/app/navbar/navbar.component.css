@@ -22,11 +22,11 @@ body {
   
   .btn-1 {
     background: none;
-    border: 3px solid #fff;
+    border: 2px solid #fff;
     color: #fff;
     display: block;
     font-weight: bold;
-    padding: 0.5em 0.5em;
+    padding: 0.2em 0.5em;
     position: relative;
     text-transform: uppercase;
   }

@@ -38,7 +38,6 @@ if(this.users.selecteduser.password == this.users.selecteduser.cpassword || (thi
   if(this.users.selecteduser.name != "" && this.users.selecteduser.email != "" && this.users.selecteduser.password!="")
    {
 try{
-  console.log(form.value);
   this.users.createUser(form.value).subscribe((res) => {
      if(res['existing_user'] == false)
      {
@@ -68,7 +67,6 @@ try{
        });
       }
       catch {
-        console.log('Oops Error Occured in creating user');
 
       }
    }
