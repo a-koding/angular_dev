@@ -33,7 +33,7 @@
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "jwt-decode": "^2.2.0",
     "ngx-bootstrap": "^4.1.1",
     "ngx-editor": "^4.1.0",
